@@ -12,5 +12,16 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('main_home');
+});
+
+Route::get('/demolay', 'DemolayController@listar');
+
+
+Route::get('/templario', function(){
+    return view('templario');
+});
+
+Route::get('/porto', function(){
+    return view('porto');
 });
