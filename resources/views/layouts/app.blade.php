@@ -1,27 +1,36 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
-        <title>Sistema Templario</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <!-- Latest compiled and minified CSS -->
+        <!-- CSRF Token -->
+        <meta name="csrf-token" content="{{ csrf_token() }}">
 
+        <title>SGT - Sistema de Gestão de Trabalhos</title>
+
+        <!-- Fonts -->
+        <link rel="dns-prefetch" href="//fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
         <!-- Bootstrap URL - CSS -->
         <link rel="stylesheet" href="{{ url('/css/bootstrap.min.css') }}">
-        <!-- <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css"> -->
         <!-- Custom styles for this template -->
         <link rel="stylesheet" href="{{ url('/themes/theme.css') }}">
+
+
         <!-- Ajax Script -->
         <script src="{{ url('/js/jquery-3.3.1.slim.js') }}"></script>
         <script src="{{ url('/js/bootstrap.min.js') }}"></script>
 
+        <!-- Scripts -->
+        <script src="{{ asset('js/app.js') }}" defer></script>
 
-        @yield('script')
+    @yield('script')
 
     </head>
 
     <body role="document">
     <br>
-        <!-- Fixed navbar -->
         <nav class="navbar navbar-inverse navbar-fixed-top">
             <div class="container">
                 <div class="navbar-header">
@@ -34,28 +43,23 @@
                     <a class="navbar-brand">SGT - Sistema de Gestão de Trabalhos</a>
                 </div>
                 <div id="navbarSupportedContent" class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav">
-                        <li class="active">
-                            <a href="{{ url('/home') }}"> Home </a>
-                        </li>
-                    </ul>
 
                     <!-- NavBar Right -->
                     <ul class="nav navbar-nav navbar-right">
                         <!-- Authentication Links -->
                         @guest
                             <li class="active">
-                                <a href="{{ route('login') }}">{{ __('Login') }}</a>
+
+                                <a href="{{ route('login') }}"><img src="img/person_icon.png" width="18" height="18">{{ __('Login') }}</a>
                             </li>
                             @if (Route::has('register'))
                                 <li class="active">
-                                    <a  href="{{ route('register') }}">{{ __('Register') }}</a>
+                                    <a  href="{{ route('register') }}"><img src="img/check_icon.png" width="15" height="15"> {{ __('Registrar') }}</a>
                                 </li>
                             @endif
                         @else
-
                             <li>
-                                <a>{{ Auth::user()->name}}</a>
+                                <a>{{ Auth::user()->name }}</a>
                             </li>
 
                             <li class="active">
@@ -77,29 +81,25 @@
             </div>
         </nav>
 
+
+
         <div class="container theme-showcase" role="main">
-
             <div class="page-header">
-
                 <div class="page-header">
                     <h1 class="form-signin-heading">
                         @yield('cabecalho')
                     </h1>
                 </div>
-
-                @yield('conteudo')
-
+                @yield('content')
             </div>
-            <center>    
-            <!-- <div class="page-header"> -->
-                <b>&copy;2019
-                    &nbsp;&nbsp;&raquo;&nbsp;&nbsp;
-                    Raul J. S. Silverio
-                    &nbsp;&nbsp;&raquo;&nbsp;&nbsp;
-                    Copyright ©
-                </b>
-            <!-- </div> -->
-            </center>
-            <br>
+
+        <b>&copy;2019
+            &nbsp;&nbsp;&raquo;&nbsp;&nbsp;
+            Raul J. S. Silvério
+            &nbsp;&nbsp;&raquo;&nbsp;&nbsp;
+            Copyright ©
+        </b>
+
+        
     </body>
 </html>
