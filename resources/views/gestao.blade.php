@@ -66,12 +66,12 @@
                 @endforeach
             </td>
             <td>
-                <a href="{{ action('GestaoController@listarDemolays', ['id' => $dados->id]) }}"><span class='glyphicon glyphicon-plus'></span></a>
+                <a href="{{ action('GestaoController@listarDemolays', ['id' => $dados->id]) }}"><img src="/img/add_ico.png" height="14" width="14"></a>
                 &nbsp;
                 @if(Auth::user()->type==3)
-                    <a href="{{ action('GestaoController@editar', ['id' => $dados->id]) }}"><span class='glyphicon glyphicon-pencil'></span></a>
+                    <a href="{{ action('GestaoController@editar', ['id' => $dados->id]) }}"><img src="/img/edit_ico.png" height="14" width="14"></a>
                     &nbsp;
-                    <a href="{{ action('GestaoController@remover', ['id' => $dados->id]) }}"><span class='glyphicon glyphicon-remove'></span></a>
+                    <a href="{{ action('GestaoController@remover', ['id' => $dados->id]) }}"><img src="/img/delete_ico.png" height="14" width="14"></a>
                 @endif
             </td>
         </tr>

@@ -43,7 +43,7 @@
                         <td>{{ $dm->email }} </td>
                         <td>{{ $cap->capitulo }}</td>
                         <td>
-                            <a href="{{ action('FrequenciaController@listarCapitulo', ['id' => $cap->id]) }}"><span class='glyphicon glyphicon-plus'></span></a>
+                            <a href="{{ action('FrequenciaController@listarCapitulo', ['id' => $cap->id]) }}"><img src="/img/add_ico.png" height="14" width="14"></span></a>
                         </td>
                     </tr>               
                 @endif

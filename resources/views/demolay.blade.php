@@ -39,7 +39,7 @@
 
     <div class='col-sm-1' style="text-align: center">
         <button type="button" class="btn btn-default btn-block">
-            <span class="glyphicon glyphicon-search"></span>
+            <img src="/img/search_ico.png" width="16" height="16">
         </button>
     </div>
 </div>
@@ -67,9 +67,9 @@
                     <td>{{ $cap->capitulo }}</td>
                     @if(Auth::user()->type==2 || Auth::user()->type==3)
                         <td>
-                            <a href="{{ action('DemolayController@editar', ['id' => $dados->id]) }}"><span class='glyphicon glyphicon-pencil'></span></a>
+                            <a href="{{ action('DemolayController@editar', ['id' => $dados->id]) }}"><img src="/img/edit_ico.png" height="16" width="16"></a>
                             &nbsp;
-                            <a href="{{ action('DemolayController@remover', ['id' => $dados->id]) }}"><span class='glyphicon glyphicon-remove'></span></a>
+                            <a href="{{ action('DemolayController@remover', ['id' => $dados->id]) }}"><img src="/img/delete_ico.png" height="16" width="16"></a>
                         </td>
                      @endif
                 </tr>

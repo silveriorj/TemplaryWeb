@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>Sistema Templario</title>
+        <title>Gestão Templários</title>
 
         <!-- Latest compiled and minified CSS -->
 
@@ -45,11 +45,11 @@
                         <!-- Authentication Links -->
                         @guest
                             <li class="active">
-                                <a href="{{ route('login') }}">{{ __('Login') }}</a>
+                                <a href="{{ route('login') }}"><img src="img/person_icon.png" width="18" height="18">{{ __('Login') }}</a>
                             </li>
                             @if (Route::has('register'))
                                 <li class="active">
-                                    <a  href="{{ route('register') }}">{{ __('Register') }}</a>
+                                    <a  href="{{ route('register') }}"><img src="img/check_icon.png" width="15" height="15">{{ __('Register') }}</a>
                                 </li>
                             @endif
                         @else

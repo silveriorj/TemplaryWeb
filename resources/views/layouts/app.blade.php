@@ -50,16 +50,16 @@
                         @guest
                             <li class="active">
 
-                                <a href="{{ route('login') }}"><img src="img/person_icon.png" width="18" height="18">{{ __('Login') }}</a>
+                                <a href="{{ route('login') }}"><img src="/img/person_icon.png" width="18" height="18">{{ __('Login') }}</a>
                             </li>
                             @if (Route::has('register'))
                                 <li class="active">
-                                    <a  href="{{ route('register') }}"><img src="img/check_icon.png" width="15" height="15"> {{ __('Registrar') }}</a>
+                                    <a  href="{{ route('register') }}"><img src="/img/registro_ico.png" width="15" height="15"> {{ __('Registrar') }}</a>
                                 </li>
                             @endif
                         @else
                             <li>
-                                <a>{{ Auth::user()->name }}</a>
+                                <a>{{ Auth::user()->name}}</a>
                             </li>
 
                             <li class="active">
