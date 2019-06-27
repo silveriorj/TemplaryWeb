@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\Auth;
 use Request;
 use App\User;
 use App\Grau;
@@ -9,6 +9,16 @@ use App\Cargo;
 use App\Capitulo;
 
 class DemolayController extends Controller {
+
+    public function __construct(){
+        $this->middleware('auth');
+    }
+
+    public function list(){   
+        
+        $user = Auth::user();
+        return view('edit')->with('user', $user);
+    }
 
     public function listar() {
         $cap = Capitulo::all();
@@ -84,6 +94,35 @@ class DemolayController extends Controller {
         else {
             return "<h2>[ERRO]: Parâmetro Inválido!</h2>";
         }
+    }
+
+
+    public function update(User $user){ 
+
+        $this->validate(request(), [
+            'name' => 'required'
+        ]);
+
+        $nome = request('name');
+        $user->name = request('name');
+
+        if(Auth::user()->email!=request('email')){
+            $this->validate(request(), [
+                'email' => 'required|email|unique:users'
+            ]);
+            $user->email = request('email');
+        }
+
+        if ( ! Request::input('password') == ''){
+            $this->validate(request(), [
+                'password' => 'required|min:6|confirmed'
+            ]);
+            $user->password = bcrypt(Request::input('password'));
+        } 
+
+        $user->save();    
+
+        return redirect()->action('DemolayController@listar')->withInput();
     }
 
     public function remover($id) {

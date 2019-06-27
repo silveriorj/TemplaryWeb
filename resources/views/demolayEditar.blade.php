@@ -6,7 +6,7 @@
         <a href="/demolay">
             <img src=" {{ url('/img/cursop_ico.png') }}" >
         </a>
-        &nbsp;Cadastrar Novo DeMolay
+        &nbsp;Editar Cadastro DeMolay
 </div>
 @stop
 

@@ -19,7 +19,7 @@ Route::group(['middleware'=>'auth'],function(){
     Route::get('/demolay/remover/{id}', 'DemolayController@remover');
     Route::post('/demolay/salvar/{id}', 'DemolayController@salvar');
     Route::get('/demolay/confirmar/{id}', 'DemolayController@confirmar');
-
+    
     Route::get('/frequencia', 'FrequenciaController@listar');
     Route::get('/frequenciaCapitulo', 'FrequenciaController@listarCapitulo');
     Route::get('/frequenciaCadastrar', 'FrequenciaController@cadastrar');
@@ -35,6 +35,14 @@ Route::group(['middleware'=>'auth'],function(){
     Route::get('/gestao/remover/{id}', 'GestaoController@remover');
     Route::post('/gestao/salvar/{id}', 'GestaoController@salvar');
     Route::get('/gestao/confirmar/{id}', 'GestaoController@confirmar');
+
+    Route::resource('tasks', 'TasksController');
+});
+
+Route::group(['middleware' => 'auth'], function() {
+
+	Route::get('/edit', 'DemolayController@list');
+	Route::post('/edit/update/{user}', 'DemolayController@update');
 
 });
 

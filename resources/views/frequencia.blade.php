@@ -9,47 +9,39 @@
 
 @section('conteudo')
 
-@if (old('cadastrar'))
-    <div class="alert alert-success">
-        <strong> Registrado com Sucesso! </strong>
-    </div>
-@endif
-
-<div class='row'>
-    <div class='col-sm-12' style="text-align: center">
-        <a  href="{{ action('FrequenciaController@cadastrar') }}" type="button" class="btn btn-primary btn-block">
-            <b>Realizar Novo Registro</b>
-        </a>
-    </div>
-</div>
-<br>
-
-<br>
-<table class='table table-striped'>
-    <thead>
-        <tr>
-            <th>CAPÍTULO</th>
-            <th>ABREVIATURA</th>
-            <th>TURMA</th>
-            <th>AÇÃO</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach($demolay as $dm)
-            @foreach($capitulo  as $cap)
-                @if( $cap->id == $dm->id_capitulo)
+    <form class="form" method="post"  action="{{ action('FrequenciaController@salvar', 0) }}">
+            <button type="submit" class="btn btn-primary btn-block">
+                <b>Confirmar Lançamento</b>
+            </button>
+            <br>
+            <table class='table table-striped'>
+                <thead>
                     <tr>
-                        <td>{{ $dm->name }} </td>
-                        <td>{{ $dm->email }} </td>
-                        <td>{{ $cap->capitulo }}</td>
+                        <th>DeMolay</th>
+                        @foreach($task as $tasks)
+                        <input type="hidden" name="id_task" value='{{$tasks->id}}''>
+                            <th>{{ date("d/m/Y", strtotime($tasks->task_date))}}</th>
+                        @endforeach
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach($demolay as $dm)
+                    <tr>
+                        <input type="hidden" name="id_user" value='{{$dm->id}}''>
+                        <td name="id_user"><strong>{{ $dm->name }}</strong></td>
+                        @foreach($task as $tasks)
                         <td>
-                            <a href="{{ action('FrequenciaController@listarCapitulo', ['id' => $cap->id]) }}"><img src="/img/add_ico.png" height="14" width="14"></span></a>
+                            <select name="frequencia" class="form">
+                                <option disabled="true" selected="true"> </option>
+                                    <option value='0'>0</option>
+                                    <option value='1'>1</option>
+                            </select>
                         </td>
-                    </tr>               
-                @endif
-            @endforeach
-        @endforeach
-    </tbody>
-</table>
+                        @endforeach
+                    </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </form>
 
 @stop

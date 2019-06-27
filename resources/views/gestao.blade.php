@@ -2,8 +2,8 @@
 
 @section('cabecalho')
 <div>
-        <img src=" {{ url('/img/turma_ico.png') }}" >
-        &nbsp;Gestões Cadastradas
+        <img src=" {{ url('/img/logo_home.jpg') }}" >
+        &nbsp;Menu da Gestão
 </div>
 @stop
 
@@ -33,7 +33,7 @@
     </div>
 @endif
 
-@if(Auth::user()->type==3)
+<!-- @if(Auth::user()->type==3)
     <div class='row'>
         <div class='col-sm-12' style="text-align: center">
             <a  href="{{ action('GestaoController@cadastrar') }}" type="button" class="btn btn-primary btn-block">
@@ -41,10 +41,65 @@
             </a>
         </div>
     </div>
+@endif -->
+@if(Auth::user()->type==3)
+<div class='row'>
+    <div class="col-md-3" style="text-align: center">
+        <a href="/tasks">
+            <img src="{{ url('/img/calendar.jpg') }}">
+        </a>
+        <h3> Calendário </h3>
+    </div>
+
+    <div class="col-md-3" style="text-align: center">
+        <a href="/gestao">
+            <img src="{{ url('/img/curso_ico.png') }}">
+        </a>
+        <h3> Biblioteca de Trabalhos </h3>
+    </div>
+
+    <div class='col-md-3' style="text-align: center">
+        <a href="/financeiro">
+            <img src="{{ url('/img/disciplina_ico.png') }}">
+        </a>
+        <h3> Fluxo de Caixa </h3>
+    </div>
+
+    <div class='col-md-3' style="text-align: center">
+        <a href="/frequencia">
+            <img src="{{ url('/img/conceito_ico.png') }}">
+        </a>
+        <h3> Registro de Presença</a> </h3>
+    </div>
+</div>
 @endif
 
+@if(Auth::user()->type==0)
+<div class='row'>
+    <div class="col-md-3 col-md-offset-1" style="text-align: center">
+        <a href="/tasks">
+            <img src="{{ url('/img/calendar.jpg') }}">
+        </a>
+        <h3> Calendário </h3>
+    </div>
+
+    <div class="col-md-3" style="text-align: center">
+        <a href="/gestao">
+            <img src="{{ url('/img/curso_ico.png') }}">
+        </a>
+        <h3> Trabalhos </h3>
+    </div>
+
+    <div class='col-sm-3' style="text-align: center">
+        <a href="/frequencia">
+            <img src="{{ url('/img/conceito_ico.png') }}">
+        </a>
+        <h3> Registro de Presença</a> </h3>
+    </div>
+</div>
+@endif
 <br>
-<table class='table table-striped'>
+<!-- <table class='table table-striped'>
     <thead>
         <tr>
             <th>ID</th>
@@ -77,6 +132,6 @@
         </tr>
     @endforeach
     </tbody>
-</table>
+</table> -->
 
 @stop

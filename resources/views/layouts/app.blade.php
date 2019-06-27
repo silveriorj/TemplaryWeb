@@ -40,7 +40,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand">SGT - Sistema de Gestão de Trabalhos</a>
+                    <a href="{{ route('home') }}" class="navbar-brand">SGT - Sistema de Gestão de Trabalhos</a>
                 </div>
                 <div id="navbarSupportedContent" class="navbar-collapse collapse">
 
@@ -61,16 +61,19 @@
                             <li>
                                 <a>{{ Auth::user()->name}}</a>
                             </li>
-
                             <li class="active">
-
+                                <a href="{{ url('/edit') }}">
+                                <img src="/img/user_edit.png" width="18" height="18">
+                                        Editar
+                                </a>
+                            </li>
+                            <li class="active">
                                 <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                        <img src="img/logout_icon.png" width="18" height="18">
+                                        <img src="/img/logout_icon.png" width="18" height="18">
                                         {{ __('Sair') }}
                                 </a>
-
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                     @csrf
                                 </form>
