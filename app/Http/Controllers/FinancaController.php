@@ -18,27 +18,34 @@ class FinancaController extends Controller
     {
         $total = 0;
         $totalFuturo = 0;
+        $totalDespesas = 0;
+        $totalEntrada = 0;
         $fin = Financa::orderBy('data', 'asc')->get();
         $lan = Lancamento::all();
 
         foreach($fin as $f){
             if($f->id_lancamento==1 && $f->pendente==0){
+                $totalEntrada += $f->valor;
                 $total += $f->valor;
                 $totalFuturo += $f->valor;
             }
             if($f->id_lancamento==1 && $f->pendente==1){
+                $totalEntrada += $f->valor;
                 $totalFuturo += $f->valor;
             }
             if($f->id_lancamento==2 && $f->pendente==0){
                 $total -= $f->valor;
                 $totalFuturo -= $f->valor;
+                $totalDespesas += $f->valor;
             }
             if($f->id_lancamento==2 && $f->pendente==1){
                 $totalFuturo -= $f->valor;
+                $totalDespesas += $f->valor;
             }
         }
 
-        return view('financa.index')->with('lancamento', $lan)->with('financas', $fin)->with('totalF', $totalFuturo)->with('total', $total);
+        return view('financa.index')->with('lancamento', $lan)->with('financas', $fin)->with('totalF', $totalFuturo)->with('total', $total)
+        ->with('totalD', $totalDespesas)->with('totalE', $totalEntrada);
     }
 
     /**
