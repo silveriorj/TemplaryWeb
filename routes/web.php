@@ -37,6 +37,14 @@ Route::group(['middleware'=>'auth'],function(){
     Route::get('/gestao/confirmar/{id}', 'GestaoController@confirmar');
 
     Route::resource('tasks', 'TasksController');
+    Route::resource('frequencia', 'FrequenciaController');
+
+    Route::resource('financa', 'FinancaController');
+    Route::get('/financa/remover/{id}', 'FinancaController@destroy');
+    Route::get('/financa/confirm/{id}', 'FinancaController@confirm');
+    Route::get('/financa/edit/{id}', 'FinancaController@edit');
+    Route::get('/financa/update/{id}', 'FinancaController@update');
+
 });
 
 Route::group(['middleware' => 'auth'], function() {

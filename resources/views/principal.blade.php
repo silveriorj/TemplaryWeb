@@ -9,11 +9,6 @@
         <link rel="stylesheet" href="{{ url('/css/bootstrap.min.css') }}">
         <!-- <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css"> -->
         <!-- Custom styles for this template -->
-        <link rel="stylesheet" href="{{ url('/themes/theme.css') }}">
-        <!-- Ajax Script -->
-        <script src="{{ url('/js/jquery-3.3.1.slim.js') }}"></script>
-        <script src="{{ url('/js/bootstrap.min.js') }}"></script>
-
 
         @yield('script')
 
@@ -39,6 +34,7 @@
                             <a href="{{ url('/home') }}"> Home </a>
                         </li>
                     </ul>
+                    @yield('menu')
 
                     <!-- NavBar Right -->
                     <ul class="nav navbar-nav navbar-right">

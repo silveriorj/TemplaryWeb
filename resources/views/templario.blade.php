@@ -37,18 +37,11 @@
 @if(Auth::user()->type==0)
     <div class='row'>
 
-        <div class="col-md-3 col-md-offset-1" style="text-align: center">
+        <div class="col-md-3 col-md-offset-3" style="text-align: center">
             <a href="/gestao">
                 <img src="{{ url('/img/logo_home.jpg') }}">
             </a>
             <h3> Gestão </h3>
-        </div>
-
-        <div class="col-md-3" style="text-align: center">
-            <a href="/gestao">
-                <img src="{{ url('/img/curso_ico.png') }}">
-            </a>
-            <h3> Trabalhos </h3>
         </div>
 
         <div class='col-md-3' style="text-align: center">
@@ -57,7 +50,6 @@
             </a>
             <h3> DeMolay </h3>
         </div>
-
     </div>
 @endif
 

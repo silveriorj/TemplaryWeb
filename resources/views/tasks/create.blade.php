@@ -1,5 +1,11 @@
 @extends('principal')
-
+@section('menu')
+    <ul class="nav navbar-nav">
+        <li class="active">
+            <a href="{{ url('/tasks') }}"> Eventos </a>
+        </li>
+    </ul>
+@stop
 @section('cabecalho')
 <div>
         <img src=" {{ url('/img/user_demolay_ico.png') }}" >

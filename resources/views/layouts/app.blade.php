@@ -15,12 +15,6 @@
         <!-- Bootstrap URL - CSS -->
         <link rel="stylesheet" href="{{ url('/css/bootstrap.min.css') }}">
         <!-- Custom styles for this template -->
-        <link rel="stylesheet" href="{{ url('/themes/theme.css') }}">
-
-
-        <!-- Ajax Script -->
-        <script src="{{ url('/js/jquery-3.3.1.slim.js') }}"></script>
-        <script src="{{ url('/js/bootstrap.min.js') }}"></script>
 
         <!-- Scripts -->
         <script src="{{ asset('js/app.js') }}" defer></script>

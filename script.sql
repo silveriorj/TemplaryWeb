@@ -74,8 +74,7 @@ CREATE TABLE IF NOT EXISTS gestaos(
 
 CREATE TABLE IF NOT EXISTS frequencias(
     id INT PRIMARY KEY AUTO_INCREMENT,
-    id_capitulo INT,
-    id_gestao INT,
+    id_task INT,
     id_user INT,
     frequencia INT
 );

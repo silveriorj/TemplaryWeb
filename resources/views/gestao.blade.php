@@ -9,39 +9,6 @@
 
 @section('conteudo')
 
-@if (old('cadastrar'))
-    <div class="alert alert-success">
-        <strong> Gestão {{ old('gestao') }} </strong>: Cadastrado com Sucesso!
-    </div>
-@endif
-
-@if (old('editar'))
-    <div class="alert alert-success">
-        <strong> Gestão {{ old('gestao') }} </strong>: Editado com Sucesso!
-    </div>
-@endif
-
-@if (old('cadastro'))
-    <div class="alert alert-success">
-        <strong> DeMolay {{ old('name') }} </strong>: Cadastrado com Sucesso!
-    </div>
-@endif
-
-@if (old('editado'))
-    <div class="alert alert-success">
-        <strong> DeMolay {{ old('name') }} </strong>: Editado com Sucesso!
-    </div>
-@endif
-
-<!-- @if(Auth::user()->type==3)
-    <div class='row'>
-        <div class='col-sm-12' style="text-align: center">
-            <a  href="{{ action('GestaoController@cadastrar') }}" type="button" class="btn btn-primary btn-block">
-                <b>Cadastrar Nova Gestão</b>
-            </a>
-        </div>
-    </div>
-@endif -->
 @if(Auth::user()->type==3)
 <div class='row'>
     <div class="col-md-3" style="text-align: center">
@@ -51,43 +18,36 @@
         <h3> Calendário </h3>
     </div>
 
-    <div class="col-md-3" style="text-align: center">
-        <a href="/gestao">
-            <img src="{{ url('/img/curso_ico.png') }}">
-        </a>
-        <h3> Biblioteca de Trabalhos </h3>
-    </div>
-
-    <div class='col-md-3' style="text-align: center">
-        <a href="/financeiro">
-            <img src="{{ url('/img/disciplina_ico.png') }}">
-        </a>
-        <h3> Fluxo de Caixa </h3>
-    </div>
-
     <div class='col-md-3' style="text-align: center">
         <a href="/frequencia">
             <img src="{{ url('/img/conceito_ico.png') }}">
         </a>
         <h3> Registro de Presença</a> </h3>
     </div>
-</div>
-@endif
 
-@if(Auth::user()->type==0)
-<div class='row'>
-    <div class="col-md-3 col-md-offset-1" style="text-align: center">
-        <a href="/tasks">
-            <img src="{{ url('/img/calendar.jpg') }}">
+    <div class='col-md-3' style="text-align: center">
+        <a href="/financa">
+            <img src="{{ url('/img/tributos2.png') }}">
         </a>
-        <h3> Calendário </h3>
+        <h3> Fluxo de Caixa </h3>
     </div>
 
     <div class="col-md-3" style="text-align: center">
         <a href="/gestao">
             <img src="{{ url('/img/curso_ico.png') }}">
         </a>
-        <h3> Trabalhos </h3>
+        <h3> Biblioteca de Trabalhos </h3>
+    </div>
+</div>
+@endif
+
+@if(Auth::user()->type==0)
+<div class='row'>
+    <div class="col-md-3 col-md-offset-0" style="text-align: center">
+        <a href="/tasks">
+            <img src="{{ url('/img/calendar.jpg') }}">
+        </a>
+        <h3> Calendário </h3>
     </div>
 
     <div class='col-sm-3' style="text-align: center">
@@ -95,6 +55,20 @@
             <img src="{{ url('/img/conceito_ico.png') }}">
         </a>
         <h3> Registro de Presença</a> </h3>
+    </div>
+
+    <div class='col-md-3' style="text-align: center">
+        <a href="/financa">
+            <img src="{{ url('/img/tributos2.png') }}">
+        </a>
+        <h3> Fluxo de Caixa </h3>
+    </div>
+
+    <div class="col-md-3" style="text-align: center">
+        <a href="/gestao">
+            <img src="{{ url('/img/curso_ico.png') }}">
+        </a>
+        <h3> Trabalhos </h3>
     </div>
 </div>
 @endif

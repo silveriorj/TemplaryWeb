@@ -1,5 +1,11 @@
 @extends('principal')
-
+@section('menu')
+    <ul class="nav navbar-nav">
+        <li class="active">
+            <a href="{{ url('/gestao') }}"> Gestão </a>
+        </li>
+    </ul>
+@stop
 @section('cabecalho')
 <div id="img">
         <img src="{{ url('/img/conceitop_ico.png') }}" >
@@ -9,7 +15,8 @@
 
 @section('conteudo')
 
-    <form class="form" method="post"  action="{{ action('FrequenciaController@salvar', 0) }}">
+    <form class="form" method="post" action="{{ route('frequencia.store') }}">
+        <input type ="hidden" name="_token" value="{{{ csrf_token() }}}">
             <button type="submit" class="btn btn-primary btn-block">
                 <b>Confirmar Lançamento</b>
             </button>
@@ -18,9 +25,9 @@
                 <thead>
                     <tr>
                         <th>DeMolay</th>
-                        @foreach($task as $tasks)
-                        <input type="hidden" name="id_task" value='{{$tasks->id}}''>
-                            <th>{{ date("d/m/Y", strtotime($tasks->task_date))}}</th>
+                        @foreach($tasks as $task)
+                        <input type="hidden" name="id_task" value='{{$task->id}}''>
+                            <th> {{ $task->name}} <br> {{ date("d/m/Y", strtotime($task->task_date))}}</th>
                         @endforeach
                     </tr>
                 </thead>
@@ -28,14 +35,10 @@
                     @foreach($demolay as $dm)
                     <tr>
                         <input type="hidden" name="id_user" value='{{$dm->id}}''>
-                        <td name="id_user"><strong>{{ $dm->name }}</strong></td>
-                        @foreach($task as $tasks)
+                        <td><strong>{{ $dm->name }}</strong></td>
+                        @foreach($tasks as $task)
                         <td>
-                            <select name="frequencia" class="form">
-                                <option disabled="true" selected="true"> </option>
-                                    <option value='0'>0</option>
-                                    <option value='1'>1</option>
-                            </select>
+                        <input type="checkbox" name="frequencia" class="form-controll" value="P">
                         </td>
                         @endforeach
                     </tr>
