@@ -16,13 +16,24 @@
 @section('conteudo')
 <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.1.0/fullcalendar.min.css' />
 
-<div class='row'>
+@if(Auth::user()->type==2 || Auth::user()->type==3)
+    <div class='row'>
         <div class='col-sm-8  col-md-offset-2' style="text-align: center">
             <a  href="{{ route('tasks.create') }}" type="button" class="btn btn-primary btn-block">
                 <b>Cadastrar Novo Evento</b>
             </a>
         </div>
     </div>
+@endif
+@if(Auth::user()->type==0)
+    <div class='row'>
+        <div class='col-sm-8  col-md-offset-2' style="text-align: center">
+            <a  href="" disabled type="button" class="btn btn-primary btn-block">
+                <b>Cadastrar Novo Evento</b>
+            </a>
+        </div>
+    </div>
+@endif
 <br>
 <center>
 <div id='calendar' style="width:60%"></div>
