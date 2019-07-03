@@ -48,9 +48,6 @@ class DemolayController extends Controller {
             $arr2 = explode(" ", Request::input('id_cargo'));
             $id_c = $arr2[0];
             $objDMModel->id_cargo = $id_c;
-            $arr3 = explode(" ", Request::input('id_capitulo'));
-            $id_cap = $arr3[0];
-            $objDMModel->id_capitulo = $id_cap;
             $objDMModel->save();
         }
         // UPDATE
@@ -63,11 +60,7 @@ class DemolayController extends Controller {
             $objDMModel->id_grau = $id_g;
             $arr2 = explode(" ", Request::input('id_cargo'));
             $id_c = $arr2[0];
-            $objDMModel->id_cargo = $id_c;
-            $arr3 = explode(" ", Request::input('id_capitulo'));
-            $id_cap = $arr3[0];
-            $objDMModel->id_capitulo = $id_cap;
-            
+            $objDMModel->id_cargo = $id_c;            
 
             $objDMModel->save();
         }
@@ -77,7 +70,6 @@ class DemolayController extends Controller {
 
     public function editar($id) {
         $grau = Grau::all();
-        $cap = Capitulo::all();
         $cargo = Cargo::all();
 
         // Filtra parâmetro para garantir que é um número

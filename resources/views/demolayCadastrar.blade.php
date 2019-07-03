@@ -65,7 +65,9 @@
             @endforeach
         </select>
         </div>
+        <br>
     </div>
+    <br>
 
     <button type="submit" class="btn btn-success btn-block">Salvar</button>
 </form>

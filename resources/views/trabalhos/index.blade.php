@@ -34,7 +34,10 @@
                 <th>Tipo</th>
                 <th>Tamanho (Kb)</th>
                 @if(Auth::user()->type==2 || Auth::user()->type==3)
-                <th>AÇÃO</th>
+                    <th>AÇÃO</th>
+                @endif
+                @if(Auth::user()->type==0)
+                    <th>Visualizar</th>
                 @endif
             </tr>
         </thead>
@@ -48,7 +51,9 @@
                 <td>{{ $dados->size }}Kbs</td>
                 <td>
                     <a target="blank" href="{{ action('FileController@show', ['id' => $dados->id]) }}"><img src="/img/checked.png" height="16" width="16"></a>
-                    <a href="{{ action('FileController@destroy', ['id' => $dados->id]) }}"><img src="/img/delete_ico.png" height="16" width="16"></a>
+                    @if(Auth::user()->type==2 || Auth::user()->type==3)
+                        <a href="{{ action('FileController@destroy', ['id' => $dados->id]) }}"><img src="/img/delete_ico.png" height="16" width="16"></a>
+                    @endif
                 </td>
             </tr>
         @endforeach

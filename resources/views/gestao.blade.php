@@ -65,7 +65,7 @@
     </div>
 
     <div class="col-md-3" style="text-align: center">
-        <a href="/gestao">
+        <a href="/trabalhos">
             <img src="{{ url('/img/curso_ico.png') }}">
         </a>
         <h3> Trabalhos </h3>
