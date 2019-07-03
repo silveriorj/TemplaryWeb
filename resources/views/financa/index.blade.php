@@ -145,15 +145,15 @@
                 @endforeach
         @endforeach
         <tr>
-        <td></td><td></td><td></td><td></td><td></td><td></td>
+        <td></td><td></td><td></td><td></td><td></td>
         </tr>
         <tr>
-            <td><strong>TOTAL DE DESPESAS:</strong></td><td><strong>R$ {{ $totalD }}</strong></td><td></td><td></td>
+            <td><strong>TOTAL DE DESPESAS:</strong></td><td><strong>R$ {{ $totalD }}</strong></td><td></td>
             <td><strong>TOTAL EM CAIXA:</strong></td>
             <td><strong><p>R$ {{ $total }}</p></strong></td>
         </tr>
         <tr>
-            <td><strong>TOTAL DE ENTRADAS:</strong></td><td><strong>R$ {{ $totalE }}</strong></td><td></td><td></td>
+            <td><strong>TOTAL DE ENTRADAS:</strong></td><td><strong>R$ {{ $totalE }}</strong></td><td></td>
             <td><strong>CAIXA FINAL:</strong></td>
             <td><strong><p>R$ {{ $totalF }}</p></strong></td>
             

@@ -119,14 +119,13 @@
                             @foreach($frequencia as $freq)
                                 <?php if($freq->id_user == $dm->id && $freq->id_task == $task->id){  ?>
                                     <?php $total += 1; ?>
-                                    <td>
-                                        
+                                        <td>
                                             <?php if($freq->frequencia == 1){ ?>
                                                 <img src="/img/checked.png" alt="">
-                                            <?php }elseif($freq->frequencia == 0){?> 
+                                            <?php }elseif($freq->frequencia == 0){ $faltas += 1;?> 
                                                 <img src="/img/unchecked.png" alt="">
                                             <?php } ?>
-                                    </td>
+                                        </td>
                                 <?php } ?>
                             @endforeach
                         @endforeach

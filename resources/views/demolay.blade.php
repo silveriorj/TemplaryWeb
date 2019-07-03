@@ -50,7 +50,7 @@
             <th>ID</th>
             <th>NOME</th>
             <th>EMAIL</th>
-            <th>CAPÍTULO</th>
+            <th>CARGO</th>
             @if(Auth::user()->type==2 || Auth::user()->type==3)
                 <th>AÇÃO</th>
             @endif
@@ -58,13 +58,13 @@
     </thead>
     <tbody>
     @foreach ($demolay as $dados)
-        @foreach($capitulo as $cap)
-            @if($cap->id == $dados->id_capitulo)
+        @foreach($cargos as $cargo)
+            @if($cargo->id == $dados->id_cargo)
                 <tr>
                     <td>{{ $dados->id }}</td>
                     <td>{{ $dados->name }}</td>
                     <td>{{ $dados->email }}</td>
-                    <td>{{ $cap->capitulo }}</td>
+                    <td>{{ $cargo->sigla }} - {{ $cargo->descricao }}</td>
                     @if(Auth::user()->type==2 || Auth::user()->type==3)
                         <td>
                             <a href="{{ action('DemolayController@editar', ['id' => $dados->id]) }}"><img src="/img/edit_ico.png" height="16" width="16"></a>

@@ -21,10 +21,10 @@ class DemolayController extends Controller {
     }
 
     public function listar() {
-        $cap = Capitulo::all();
+        $cargo = Cargo::all();
         $demolay = User::all();
 
-        return view('demolay')->with('capitulo', $cap)->with('demolay', $demolay);
+        return view('demolay')->with('cargos', $cargo)->with('demolay', $demolay);
     }
 
     public function cadastrar() {
