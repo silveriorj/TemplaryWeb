@@ -42,7 +42,6 @@
                     ?>
                         <td><strong>{{ $dm->name }}</strong></td>
                         @foreach($tasks as $task)
-                            
                             @foreach($frequencia as $freq)
                                 <?php if($freq->id_user == $dm->id && $freq->id_task == $task->id){  ?>
                                     <?php $total += 1; ?>

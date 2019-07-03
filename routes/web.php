@@ -36,10 +36,20 @@ Route::group(['middleware'=>'auth'],function(){
     Route::post('/gestao/salvar/{id}', 'GestaoController@salvar');
     Route::get('/gestao/confirmar/{id}', 'GestaoController@confirmar');
 
+
+    Route::get('/relatorio', 'RelatorioController@listar');
+    Route::get('/relatorioF', 'RelatorioController@listarF');
+    Route::get('/relatorioP', 'RelatorioController@listarP');
+    Route::get('/relatorioE', 'RelatorioController@listarE');
+
+    Route::resource('trabalhos', 'FileController');
+    Route::get('/trabalhos/remover/{id}', 'FileController@destroy');
+    Route::get('/trabalhos/confirm/{id}', 'FileController@confirm');
+
     Route::resource('tasks', 'TasksController');
     Route::resource('frequencia', 'FrequenciaController');
-
     Route::resource('financa', 'FinancaController');
+
     Route::get('/financa/remover/{id}', 'FinancaController@destroy');
     Route::get('/financa/confirm/{id}', 'FinancaController@confirm');
     Route::get('/financa/edit/{id}', 'FinancaController@edit');

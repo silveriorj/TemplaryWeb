@@ -32,23 +32,15 @@
 
     <div class="row">
         <div class="col-sm-3">
-        <label>Capítulo: </label>
-        <select name="id_capitulo" class="form-control">
-            <option disabled="true" selected="true"> </option>
-            @foreach ($capitulo as $dados)
-                <option> {{ $dados->id }} - {{ $dados->capitulo }}</option>
-            @endforeach
-        </select>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-sm-3">
         <label>Grau: </label>
-        <select name="id_grau" class="form-control">
-            <option disabled="true" selected="true"> </option>
-            @foreach ($grau as $dados)
-                <option> {{ $dados->id }} - {{ $dados->descricao }} ( {{ $dados->sigla }} ) </option>
-            @endforeach
+        <select class="form-control" name="id_grau">
+            <?php foreach($grau as $dados){ ?>
+                <?php if($dados->id == $demolay->id_grau){  ?>
+                    <option selected> {{ $dados->id }} - {{ $dados->descricao }} ( {{ $dados->sigla }} ) </option>
+                <?php }else {?> 
+                    <option> {{ $dados->id }} - {{ $dados->descricao }} ( {{ $dados->sigla }} ) </option>
+                <?php } ?>
+            <?php } ?>
         </select>
         </div>
     </div>
@@ -56,11 +48,14 @@
     <div class="row">
         <div class="col-sm-3">
         <label>Cargo: </label>
-        <select name="id_cargo" class="form-control">
-            <option disabled="true" selected="true"> </option>
-            @foreach ($cargo as $dados)
-                <option> {{ $dados->id }} - {{ $dados->descricao }} ( {{ $dados->sigla }} ) </option>
-            @endforeach
+        <select class="form-control" name="id_grau">
+            <?php foreach($cargo as $dados){ ?>
+                <?php if($dados->id == $demolay->id_cargo){  ?>
+                    <option selected> {{ $dados->id }} - {{ $dados->descricao }} ( {{ $dados->sigla }} ) </option>
+                <?php }else {?> 
+                    <option> {{ $dados->id }} - {{ $dados->descricao }} ( {{ $dados->sigla }} ) </option>
+                <?php } ?>
+            <?php } ?>
         </select>
         </div>
     </div>

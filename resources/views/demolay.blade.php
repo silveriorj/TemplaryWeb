@@ -20,13 +20,22 @@
         <strong> {{ old('name') }} </strong>: Alterado com Sucesso!
     </div>
 @endif
-
-<div class='row'>
-    <div class='col-sm-8' style="text-align: center">
+@if(Auth::user()->type==2 || Auth::user()->type==3)
+    <div class='row'>
+        <div class='col-sm-8' style="text-align: center">
         <a  href="{{ action('DemolayController@cadastrar') }}" type="button" class="btn btn-primary btn-block">
             <b>Cadastrar Novo DeMolay</b>
         </a>
     </div>
+@endif
+@if(Auth::user()->type==0)
+    <div class='row'>
+        <div class='col-sm-8' style="text-align: center">
+        <a disabled type="button" class="btn btn-primary btn-block">
+            <b>Cadastrar Novo DeMolay</b>
+        </a>
+    </div>
+@endif
 
     <div class='col-sm-3' style="text-align: center">
         <input type="text" list="demolay" class="form-control" autocomplete="on" placeholder="buscar">
@@ -57,25 +66,29 @@
         </tr>
     </thead>
     <tbody>
-    @foreach ($demolay as $dados)
-        @foreach($cargos as $cargo)
-            @if($cargo->id == $dados->id_cargo)
-                <tr>
-                    <td>{{ $dados->id }}</td>
-                    <td>{{ $dados->name }}</td>
-                    <td>{{ $dados->email }}</td>
-                    <td>{{ $cargo->sigla }} - {{ $cargo->descricao }}</td>
-                    @if(Auth::user()->type==2 || Auth::user()->type==3)
-                        <td>
-                            <a href="{{ action('DemolayController@editar', ['id' => $dados->id]) }}"><img src="/img/edit_ico.png" height="16" width="16"></a>
-                            &nbsp;
-                            <a href="{{ action('DemolayController@remover', ['id' => $dados->id]) }}"><img src="/img/delete_ico.png" height="16" width="16"></a>
-                        </td>
-                     @endif
-                </tr>
+        @foreach ($demolay as $dados)
+            <tr>
+                <td>{{ $dados->id }}</td>
+                <td>{{ $dados->name }}</td>
+                <td>{{ $dados->email }}</td>
+                <?php if($dados->id_cargo == null){ ?>
+                    <td> </td>
+                <?php } ?>
+                @foreach($cargos as $cargo)
+                    <?php if($cargo->id == $dados->id_cargo){?> 
+                        <td>{{$cargo->sigla}} - {{$cargo->descricao}}</td>
+                    <?php } ?>
+                @endforeach
+                
+                @if(Auth::user()->type==2 || Auth::user()->type==3)
+                    <td>
+                        <a href="{{ action('DemolayController@editar', ['id' => $dados->id]) }}"><img src="/img/edit_ico.png" height="16" width="16"></a>
+                        &nbsp;
+                        <a href="{{ action('DemolayController@remover', ['id' => $dados->id]) }}"><img src="/img/delete_ico.png" height="16" width="16"></a>
+                    </td>
                 @endif
-            @endforeach
-    @endforeach
+            </tr>
+        @endforeach
     </tbody>
 </table>
 
