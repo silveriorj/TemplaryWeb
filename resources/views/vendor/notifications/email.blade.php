@@ -39,19 +39,19 @@
 
 @endforeach
 
-{{-- Salutation --}}
+{{-- Ssalutation --}}
 @if (! empty($salutation))
 {{ $salutation }}
 @else
-@lang('Regards'),<br>{{ config('app.name') }}
+@lang('Saudações'),<br>Equipe de administração de sistemas Templários nº901.
 @endif
 
 {{-- Subcopy --}}
 @isset($actionText)
 @slot('subcopy')
 @lang(
-    "If you’re having trouble clicking the \":actionText\" button, copy and paste the URL below\n".
-    'into your web browser: [:actionURL](:actionURL)',
+    "Se estiver tendo problemas ao clicar em \":actionText\", copie e cole a URL abaixo\n".
+    'em seu navegador: [:actionURL](:actionURL)',
     [
         'actionText' => $actionText,
         'actionURL' => $actionUrl,
