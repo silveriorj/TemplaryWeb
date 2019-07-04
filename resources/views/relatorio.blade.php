@@ -19,14 +19,14 @@
     </div>
 
     <div class='col-sm-3' style="text-align: center">
-        <a href="/relatorioP">
+        <a target="blank" href="/relatorioP">
             <img src="{{ url('/img/conceito_ico.png') }}">
         </a>
         <h3> Registro de Presença</a> </h3>
     </div>
 
     <div class='col-md-3' style="text-align: center">
-        <a href="/relatorioF">
+        <a target="blank" href="/relatorioF">
             <img src="{{ url('/img/tributos2.png') }}">
         </a>
         <h3> Fluxo de Caixa </h3>

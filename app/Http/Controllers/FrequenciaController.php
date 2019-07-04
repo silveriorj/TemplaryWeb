@@ -12,9 +12,9 @@ use DateTime;
 class FrequenciaController extends Controller{
 
     public function index() {
-        $demolay = User::all();
+        $demolay = User::orderBy('name', 'asc')->get();
         $frequencia = Frequencia::all();
-        $task = Task::all();
+        $task = Task::orderBy('task_date', 'asc')->get();
 
         $total = 0;
         $faltas = 0;

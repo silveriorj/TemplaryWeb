@@ -24,7 +24,7 @@
     </head>
 
     <body role="document">
-    <br>
+    <br><br><br><br>
         <nav class="navbar navbar-inverse navbar-fixed-top">
             <div class="container">
                 <div class="navbar-header">
@@ -89,14 +89,17 @@
                 </div>
                 @yield('content')
             </div>
+	 <center>    
+            <!-- <div class="page-header"> -->
+                <b>&copy;2019
+                    &nbsp;&nbsp;&raquo;&nbsp;&nbsp;
+                    Raul J. S. Silverio
+                    &nbsp;&nbsp;&raquo;&nbsp;&nbsp;
+                    Copyright ©
+                </b>
+            <!-- </div> -->
+            </center>
+            <br>
 
-        <b>&copy;2019
-            &nbsp;&nbsp;&raquo;&nbsp;&nbsp;
-            Raul J. S. Silvério
-            &nbsp;&nbsp;&raquo;&nbsp;&nbsp;
-            Copyright ©
-        </b>
-
-        
     </body>
 </html>

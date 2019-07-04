@@ -27,7 +27,7 @@
                     <tr>
                         <th>DeMolay</th>
                         @foreach($tasks as $task)
-                            <th> {{ $task->name}} <br> {{ date("d/m/Y", strtotime($task->task_date))}}</th>
+                            <th> {{ date("d/m", strtotime($task->task_date))}}</th>
                         @endforeach
                         <th>FREQUÊNCIA</th>
                     </tr>
@@ -68,6 +68,7 @@
                                 $result = $total - $faltas;
                                 try{
                                     $fr = $result / $total * 100;
+				    $fr = number_format($fr, 2, '.', '');
                                 }catch(Exception $e){
                                     $fr = 0;
                                 }
@@ -99,7 +100,7 @@
                     <tr>
                         <th>DeMolay</th>
                         @foreach($tasks as $task)
-                            <th> {{ $task->name}} <br> {{ date("d/m/Y", strtotime($task->task_date))}}</th>
+                            <th> {{ $task->name}} <br> {{ date("d/m", strtotime($task->task_date))}}</th>
                         @endforeach
                         <th>FREQUÊNCIA</th>
                     </tr>
@@ -133,6 +134,7 @@
                                 $result = $total - $faltas;
                                 try{
                                     $fr = $result / $total * 100;
+				    $fr = number_format($fr, 2, '.', '');
                                 }catch(Exception $e){
                                     $fr = 0;
                                 }

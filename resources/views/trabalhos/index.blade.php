@@ -31,8 +31,7 @@
                 <th>Titulo</th>
                 <th>Descricao</th>
                 <th>Autor</th>
-                <th>Tipo</th>
-                <th>Tamanho (Kb)</th>
+                <th>Tamanho (Mb)</th>
                 @if(Auth::user()->type==2 || Auth::user()->type==3)
                     <th>AÇÃO</th>
                 @endif
@@ -47,8 +46,7 @@
                 <td>{{ $dados->titulo }}</td>
                 <td>{{ $dados->descricao }}</td>
                 <td>{{ $dados->autor }}</td>
-                <td>{{ $dados->type }}</td>
-                <td>{{ $dados->size }}Kbs</td>
+                <td>{{ $dados->size/1000000 }}Kbs</td>
                 <td>
                     <a target="blank" href="{{ action('FileController@show', ['id' => $dados->id]) }}"><img src="/img/checked.png" height="16" width="16"></a>
                     @if(Auth::user()->type==2 || Auth::user()->type==3)

@@ -22,7 +22,7 @@ class DemolayController extends Controller {
 
     public function listar() {
         $cargo = Cargo::all();
-        $demolay = User::all();
+        $demolay = User::orderBy("id_cargo", "asc")->get();
 
         return view('demolay')->with('cargos', $cargo)->with('demolay', $demolay);
     }

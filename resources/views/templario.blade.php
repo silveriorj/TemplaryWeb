@@ -2,7 +2,7 @@
 
 @section('cabecalho')
 <div id="m_texto">
-        <img src=" {{ url('/img/homep_ico.ico') }}" >
+        <img src=" {{ url('/img/logo_home.jpg') }}" >
         &nbsp;Menu Principal
 </div>
 @stop

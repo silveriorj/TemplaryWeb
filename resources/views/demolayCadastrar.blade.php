@@ -34,17 +34,6 @@
     </div>
     <div class="row">
         <div class="col-sm-3">
-        <label>Capítulo: </label>
-        <select name="id_capitulo" class="form-control">
-            <option disabled="true" selected="true"> </option>
-            @foreach ($capitulo as $dados)
-                <option> {{ $dados->id }} - {{ $dados->capitulo }}</option>
-            @endforeach
-        </select>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-sm-3">
         <label>Grau: </label>
         <select name="id_grau" class="form-control">
             <option disabled="true" selected="true"> </option>

@@ -56,10 +56,12 @@
 <table class='table table-striped'>
     <thead>
         <tr>
-            <th>ID</th>
+            @if(Auth::user()->type==2 || Auth::user()->type==3)
+                <th>ID</th>
+            @endif
+	    <th>CARGO</th>
             <th>NOME</th>
             <th>EMAIL</th>
-            <th>CARGO</th>
             @if(Auth::user()->type==2 || Auth::user()->type==3)
                 <th>AÇÃO</th>
             @endif
@@ -68,10 +70,10 @@
     <tbody>
         @foreach ($demolay as $dados)
             <tr>
-                <td>{{ $dados->id }}</td>
-                <td>{{ $dados->name }}</td>
-                <td>{{ $dados->email }}</td>
-                <?php if($dados->id_cargo == null){ ?>
+                @if(Auth::user()->type==2 || Auth::user()->type==3)
+                    <td>{{ $dados->id }}</td>
+                @endif
+		<?php if($dados->id_cargo == null){ ?>
                     <td> </td>
                 <?php } ?>
                 @foreach($cargos as $cargo)
@@ -79,6 +81,8 @@
                         <td>{{$cargo->sigla}} - {{$cargo->descricao}}</td>
                     <?php } ?>
                 @endforeach
+                <td>{{ $dados->name }}</td>
+                <td>{{ $dados->email }}</td>
                 
                 @if(Auth::user()->type==2 || Auth::user()->type==3)
                     <td>
